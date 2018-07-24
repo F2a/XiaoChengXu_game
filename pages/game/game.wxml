@@ -1,0 +1,30 @@
+<!--pages/game/game.wxml-->
+<view class="title">第一关</view>
+<view class="statusBox" >
+  <view bindtap='select' class="{{select===item?'statusList select':'statusList'}}" data-val='{{item}}' wx:for="{{array}}">
+  {{item}}
+  </view>
+</view>
+<view class="statusBox" >
+  <view class="statusList playerBox">
+    {{random}}
+  </view>
+  <view class="statusList playerBox">
+    {{select||'未选择'}}
+  </view>
+</view>
+  <button wx:if="{{txt==='start'}}" bindtap='start' class="startButton">{{txt}}</button>
+<_model 
+  _width='300' 
+  _visibel='{{modelVisibel}}' 
+  _delay='{{delay}}'
+  bind_hideEvent=""
+  >
+  <view slot="children">
+    <button wx:if="{{txt==='stop'}}" bindtap='end' class="startButton">{{txt}}</button>
+  </view>
+  <view slot="content">
+    <view class='modelTxt'>{{modelTxt}}</view>
+    <view class='modelTxt' wx:if="{{select}}">{{random}} VS {{select}}</view>
+  </view>
+</_model>

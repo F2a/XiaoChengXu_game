@@ -1,0 +1,23 @@
+<!--component/model/model.wxml-->
+<view>
+  <view catch:tap='showModel'>
+    <slot name="children"></slot>
+  </view>
+  <view wx:if="{{visibel}}" class='mask'>
+    <view 
+    class='model'
+    style='width: {{_width}}px; margin-left: -{{_width/2}}px'
+    >
+      <view class='title'>{{_title}}</view>
+      <slot name="content"></slot>
+      <view class='bottom'>
+        <button 
+          style='float: right;'
+          bindtap='hideModel'
+        >关闭</button>
+      </view>
+    </view>
+  </view>
+
+</view>
+
